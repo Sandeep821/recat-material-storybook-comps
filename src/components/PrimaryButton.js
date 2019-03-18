@@ -27,7 +27,7 @@ function PrimaryButtonOnDark(props) {
   return (
     <div>
         <Button variant="contained" color={color} className={classes.button} disabled={disabled} {...restProps}>
-         {text}  ->
+         {text} &#x2192;
        </Button>
     </div>
   );

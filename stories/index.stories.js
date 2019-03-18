@@ -10,11 +10,13 @@ import TextField from '../src/components/TextField';
 import PrimaryButton from '../src/components/PrimaryButton';
 import PrimaryButtonOnDark from '../src/components/PrimaryButtonOnDark';
 import SecondaryButtonOnDark from '../src/components/SecondaryButtonOnDark';
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+import { WithNotes } from '@storybook/addon-notes';
 
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
-storiesOf('Button', module)
+storiesOf('Material form', module)
   .add('with text', () => <Button onClick={action('clicked')}>Hello Button test</Button>)
   .add('with some emoji', () => (
     <Button onClick={action('clicked')}>
@@ -30,8 +32,14 @@ storiesOf('Button', module)
   .add('Text Field', () => <TextField/>)
 
  storiesOf('Primary Buttons', module) 
-  .add('Primary Default', () => <PrimaryButton text='NEXT' color='primary'/>)
-  .add('Primary Disabled', () => <PrimaryButton text='NEXT' color='primary' disabled="true" />)
+ .add('withNotes', () => (
+  <WithNotes notes={'A very simple component'}>
+    <PrimaryButton text='NEXT' color='secondary'/>
+  </WithNotes>
+))
+  .addDecorator(withKnobs)
+  .add('Primary Default WITH Knob', () => <PrimaryButton text={text('lable', 'NEXT')} color='primary'/>, {notes: 'This is primary button with knob'})
+  .add('Primary Disabled', () => <PrimaryButton text='NEXT' color='primary' disabled={boolean('Disabled', true)} />)
  storiesOf('Secondary Buttons', module) 
   .add('Secondary Default', () => <PrimaryButton text='NEXT' color='secondary'/>)
   .add('Secondary Disabled', () => <PrimaryButton text='NEXT' color='secondary' disabled="true"/>)

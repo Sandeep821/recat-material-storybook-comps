@@ -29,7 +29,7 @@ function SecondaryButtonOnDark(props) {
   return (
     <div>
         <Button color={color} className={classes.button} disabled={disabled} variant="outlined" {...restProps}>
-         {text}  ->
+         {text}  &#x2192;
        </Button>
     </div>
   );

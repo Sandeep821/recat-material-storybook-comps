@@ -29,7 +29,7 @@ function PrimaryButtons(props) {
   return (
     <div>
         <Button  color={color} className={classes.button} disabled={disabled} {...restProps}>
-         {text}  ->
+         {text}  &#x2192;
        </Button>
     </div>
   );
